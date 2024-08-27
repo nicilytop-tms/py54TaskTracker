@@ -29,12 +29,18 @@
 </div>
 <script>
     $("button.btn").on('click', function () {
-        var data = JSON.stringify( $("form").serialize() );
+        let phone = $('form input[name=phone]').val();
+        let password = $('form input[name=password]').val();
+        let newData = {
+            'phone': phone,
+            'password': password,
+        }
+        var ajaxData = JSON.stringify(newData);
         $.ajax({
             url: '/api/v1/users/login/',
             type: "POST",
             dataType: 'json',
-            data: data,
+            data: ajaxData,
             contentType: 'application/json;charset=UTF-8',
             success: function (data){
                 console.log('dfsdfs');

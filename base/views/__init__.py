@@ -1,0 +1,1 @@
+from .main_page_view import MainPageView
